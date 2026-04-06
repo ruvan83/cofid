@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoFID Recipe Nutrition Calculator</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Static, zero-backend architecture</p>
+          <h1>CoFID Recipe Nutrition Calculator</h1>
+          <p class="lede">
+            Search the full imported McCance and Widdowson CoFID dataset, add ingredients with type-ahead,
+            and calculate nutrition for the whole recipe, per 100 g, and per serving.
+          </p>
+        </div>
+        <div id="dataset-banner" class="banner"></div>
+      </header>
+
+      <section class="panel controls">
+        <div class="search-block">
+          <label for="food-search">Add ingredient</label>
+          <input id="food-search" type="text" autocomplete="off" placeholder="Start typing, for example chicken breast or olive oil" />
+          <div id="search-results" class="search-results" hidden></div>
+        </div>
+
+        <div class="settings-grid">
+          <label>
+            Servings
+            <input id="servings" type="number" min="1" step="1" value="4" />
+          </label>
+          <label>
+            Recipe name
+            <input id="recipe-name" type="text" placeholder="Optional" />
+          </label>
+          <div class="button-row">
+            <button id="clear-btn" type="button" class="secondary">Clear recipe</button>
+            <button id="calculate-btn" type="button">Calculate</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <h2>Recipe ingredients</h2>
+          <p id="ingredient-summary" class="muted">No ingredients added yet.</p>
+        </div>
+        <div class="table-wrap">
+          <table id="ingredients-table">
+            <thead>
+              <tr>
+                <th>Food</th>
+                <th>Weight, g</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <h2>Nutrition results</h2>
+          <p class="muted">Values are calculated directly in the browser from the imported CoFID dataset.</p>
+        </div>
+        <div id="results" class="empty-state">Add ingredients, then calculate.</div>
+      </section>
+
+      <section class="panel instructions-panel">
+        <div class="section-head">
+          <h2>Build and host for free</h2>
+          <p class="muted">Use the README for full step by step instructions.</p>
+        </div>
+        <ol class="instruction-list">
+          <li>Run the importer once to generate <code>app/data/meta.json</code> and <code>app/data/foods.json</code>.</li>
+          <li>Test locally by serving the <code>app</code> folder with a simple static web server.</li>
+          <li>Deploy the <code>app</code> folder only, there is no backend.</li>
+          <li>Use GitHub Pages or Cloudflare Pages first, use Netlify or Vercel only if you prefer their workflow.</li>
+        </ol>
+      </section>
+    </main>
+
+    <template id="ingredient-row-template">
+      <tr>
+        <td>
+          <div class="food-cell">
+            <strong class="food-name"></strong>
+            <div class="muted food-meta"></div>
+          </div>
+        </td>
+        <td><input class="grams-input" type="number" min="0" step="0.1" value="100" /></td>
+        <td><button class="remove-btn secondary" type="button">Remove</button></td>
+      </tr>
+    </template>
+
+    <script src="./data/meta.js"></script>
+    <script src="./data/foods.js"></script>
+    <script src="./assets/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+{
+  "source": "McCance and Widdowson CoFID",
+  "workbook": "McCance_Widdowsons_Composition_of_Foods_Integrated_Dataset_2021..xlsx",
+  "food_count": 2887,
+  "nutrients": [
+    {
+      "key": "energy_kj",
+      "label": "Energy (kJ) (kJ)",
+      "unit": "kJ"
+    },
+    {
+      "key": "energy_kcal",
+      "label": "Energy (kcal) (kcal)",
+      "unit": "kcal"
+    },
+    {
+      "key": "protein_g",
+      "label": "Protein (g)",
+      "unit": "g"
+    },
+    {
+      "key": "fat_g",
+      "label": "Fat (g)",
+      "unit": "g"
+    },
+    {
+      "key": "carbohydrate_g",
+      "label": "Carbohydrate (g)",
+      "unit": "g"
+    },
+    {
+      "key": "sugars_g",
+      "label": "Total sugars (g)",
+      "unit": "g"
+    },
+    {
+      "key": "fibre_g",
+      "label": "AOAC fibre (g)",
+      "unit": "g"
+    },
+    {
+      "key": "saturates_g",
+      "label": "Satd FA /100g fd (g)",
+      "unit": "g"
+    }
+  ],
+  "warning": "Reference values are typical composition data. Match foods carefully, especially for processed foods and alcoholic drinks. Alcoholic drinks in CoFID may be expressed per 100 ml in the source workbook."
+}
